@@ -24,7 +24,6 @@
 
 `train_plus.py` 将完整音频的 VAE latent 同时用作 cond（音色条件）和 x₁（训练目标 GT），导致 DiT 每帧都直接从 cond 抄答案，从未学会文本→音频的映射。自重建完美（RMS 0.08）但改词翻唱完全失败。
 
-详细分析见 [plus-architecture-deep-dive.md](repository-relative-source) 第四节和第十二节。
 
 ***
 
@@ -478,9 +477,6 @@ Step 8: （可选）GRPO 精调（依赖 SFT 改词翻唱验证通过）
 | config          | `config/YingMusic_Singer.yaml`                             |
 | V1 训练脚本         | `scripts_archive/yingmusic_plus/2_train_sft/train_plus.py` |
 | V1 评估记录         | `docs/JA_SFT_DEBUG_LOG.md`                                 |
-| 架构对比            | `docs/architecture-plus.md`                                |
-| 深度分析            | `docs/plus-architecture-deep-dive.md`                      |
-| 确定事实            | `docs/plus-facts.md`                                       |
 | 模块计划            | `docs/plus-finetune-plan-v2.md`                            |
 
 
