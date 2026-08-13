@@ -1,0 +1,160 @@
+{
+  "schema": "utmos22-seed-variance.v1",
+  "models": [
+    "v4ph",
+    "v4fg"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "tasks_per_model": 27,
+  "total_audio": 540,
+  "normalization": {
+    "target_rms_dbfs": -28.0,
+    "peak_ceiling_dbfs": -1.0,
+    "sample_rates": [
+      44100
+    ],
+    "channels": [
+      1
+    ],
+    "normalized_rms_min": -28.000000032322006,
+    "normalized_rms_max": -27.999999915972445,
+    "normalized_peak_max": -5.949399632274288
+  },
+  "scorer_repeatability": {
+    "checked_audio": 54,
+    "passes_per_audio": 4,
+    "max_abs_delta": 0.0,
+    "mean_abs_span": 0.0
+  },
+  "model_summaries": [
+    {
+      "model": "v4ph",
+      "tasks": 27,
+      "seeds_per_task": 10,
+      "score_mean": 1.3213281079574868,
+      "score_min": 1.2396626472473145,
+      "score_max": 1.5588282346725464,
+      "task_seed_std_mean": 0.01611055527899539,
+      "task_seed_std_median": 0.015077089782130858,
+      "task_seed_std_p10": 0.007666819462386881,
+      "task_seed_std_p90": 0.026857355664256614,
+      "task_seed_range_mean": 0.05065234943672463,
+      "task_seed_range_median": 0.04488182067871094,
+      "task_seed_range_min": 0.007345676422119141,
+      "task_seed_range_max": 0.16529881954193115,
+      "tasks_range_ge_0p05": 9,
+      "tasks_range_ge_0p10": 1,
+      "tasks_range_ge_0p20": 0,
+      "pair_abs_diff_median": 0.012857437133789062,
+      "pair_fraction_ge_0p02": 0.3374485596707819,
+      "pair_fraction_ge_0p05": 0.05761316872427984,
+      "pair_fraction_ge_0p10": 0.006584362139917695,
+      "between_task_sd_of_means": 0.06377036341126885,
+      "pooled_within_task_seed_sd": 0.01851389506869931,
+      "icc_1_1_task_identity": 0.9216565065137079,
+      "variance_fraction_task": 0.9269769960689475,
+      "variance_fraction_fixed_seed": 0.0050263739308546345,
+      "variance_fraction_task_by_seed": 0.06799663000019768,
+      "fixed_seed_mean_range": 0.016535498477794563,
+      "seed_means": {
+        "42": 1.3186705244912043,
+        "43": 1.322223049622995,
+        "44": 1.3225963998723913,
+        "45": 1.3235223867275097,
+        "46": 1.3185677925745647,
+        "47": 1.3269751204384699,
+        "48": 1.3210005186222218,
+        "49": 1.3132572792194508,
+        "50": 1.3297927776972454,
+        "51": 1.3166752303088154
+      },
+      "best_seed_counts": {
+        "42": 1,
+        "43": 4,
+        "44": 1,
+        "45": 4,
+        "46": 1,
+        "47": 5,
+        "48": 2,
+        "49": 1,
+        "50": 5,
+        "51": 3
+      }
+    },
+    {
+      "model": "v4fg",
+      "tasks": 27,
+      "seeds_per_task": 10,
+      "score_mean": 1.2876599974102445,
+      "score_min": 1.2283122539520264,
+      "score_max": 1.4875515699386597,
+      "task_seed_std_mean": 0.016740030271916083,
+      "task_seed_std_median": 0.01463178439149592,
+      "task_seed_std_p10": 0.008985256468121823,
+      "task_seed_std_p90": 0.02988471980532258,
+      "task_seed_range_mean": 0.051680918093080876,
+      "task_seed_range_median": 0.04636526107788086,
+      "task_seed_range_min": 0.02294325828552246,
+      "task_seed_range_max": 0.1454843282699585,
+      "tasks_range_ge_0p05": 10,
+      "tasks_range_ge_0p10": 2,
+      "tasks_range_ge_0p20": 0,
+      "pair_abs_diff_median": 0.0139923095703125,
+      "pair_fraction_ge_0p02": 0.36790123456790125,
+      "pair_fraction_ge_0p05": 0.06337448559670782,
+      "pair_fraction_ge_0p10": 0.007407407407407408,
+      "between_task_sd_of_means": 0.045448166184262256,
+      "pooled_within_task_seed_sd": 0.018918896005472755,
+      "icc_1_1_task_identity": 0.8500944728841715,
+      "variance_fraction_task": 0.8606192401053466,
+      "variance_fraction_fixed_seed": 0.004677369424275283,
+      "variance_fraction_task_by_seed": 0.13470339047037888,
+      "fixed_seed_mean_range": 0.011490234622248963,
+      "seed_means": {
+        "42": 1.2856040000915527,
+        "43": 1.2842844371442441,
+        "44": 1.289034644762675,
+        "45": 1.2875351817519576,
+        "46": 1.2858908043967352,
+        "47": 1.295774671766493,
+        "48": 1.2899840187143397,
+        "49": 1.2848933581952695,
+        "50": 1.2886783281962078,
+        "51": 1.2849205290829693
+      },
+      "best_seed_counts": {
+        "42": 3,
+        "43": 2,
+        "44": 2,
+        "45": 2,
+        "46": 2,
+        "47": 8,
+        "48": 4,
+        "49": 1,
+        "50": 3
+      }
+    }
+  ],
+  "artifacts": {
+    "canonical_manifest_sha256: redacted
+    "scores_sha256: redacted
+    "per_task_stats_sha256: redacted
+    "utmos22_weight_sha256: redacted
+    "listening_archive": "${SERVER_PATH}",
+    "listening_archive_sha256: redacted
+  }
+}
+
+
+

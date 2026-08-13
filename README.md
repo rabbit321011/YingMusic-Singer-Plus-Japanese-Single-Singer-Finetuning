@@ -1,287 +1,158 @@
+# 歌声合成研究代码库
 
-<div align="center">
+这是一个实验性歌声合成项目的公开研究档案，包含版本化的训练代码、推理代码、数据处理逻辑、评估工具、工程记录和实验结果。
 
-<h1>🎤 YingMusic-Singer-Plus: Controllable Singing Voice Synthesis with Flexible Lyric Manipulation and Annotation-free Melody Guidance</h1>
+本仓库公开的是**算法和工程逻辑**。训练数据、音频、模型权重和运行缓存不随仓库分发；使用者需要自行准备具有合法使用权的数据和模型文件。
 
-<img src="assets/model_logo.gif" width="61.8%">
+## 公开内容
 
-<p>
-  <a href="">English</a> ｜ <a href="README_ZH.md">中文</a>
-</p>
+- `docs/`：架构、数据流程、训练计划、实验记录和评估协议
+- `src/YingMusic-Singer-Plus/`：基础 YingMusic-Singer-Plus 源码和早期 V3/V4/V5a1 训练入口
+- `src/package_v4c_finetune/`：完整的版本化训练包，包括 V4c、V4H/V4Hg、V4PH、V4IPH、V4IjPH、V4M、V4Pvf、V4SF、V4VF/V4VFG、V5P/V5Pg 和 V5Sg
+- `src/archive_training/`：早期 SFT、GRPO、YYSinger 和 Vevo2 训练脚本归档
+- `third_party/`：允许再分发的第三方源码及其许可证文件
+- `config/`：不含私密路径的配置示例
+- `results/`：经过筛选和脱敏的少量结果摘要
 
+## 重要边界
 
-![Python](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)
-![License](https://img.shields.io/badge/License-CC--BY--4.0-lightgrey)
+仓库不包含：训练音频、生成音频、原始 manifest/JSONL、latent/cache、checkpoint、VAE/MIDI/分离模型权重、私有服务器配置和云存储凭据。
 
-[![arXiv Paper](https://img.shields.io/badge/arXiv-2603.24589-b31b1b?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2603.24589)
-[![GitHub](https://img.shields.io/badge/GitHub-YingMusic--Singer-181717?logo=github&logoColor=white)](https://github.com/ASLP-lab/YingMusic-Singer-Plus)
-[![Demo Page](https://img.shields.io/badge/GitHub-Demo--Page-8A2BE2?logo=github&logoColor=white&labelColor=181717)](https://aslp-lab.github.io/YingMusic-Singer-Plus-Demo/)
-[![HuggingFace Space](https://img.shields.io/badge/🤗%20HuggingFace-Space-FFD21E)](https://huggingface.co/spaces/ASLP-lab/YingMusic-Singer-Plus)
-[![HuggingFace Model](https://img.shields.io/badge/🤗%20HuggingFace-Model-FF9D00)](https://huggingface.co/ASLP-lab/YingMusic-Singer-Plus)
-[![Dataset LyricEditBench](https://img.shields.io/badge/🤗%20HuggingFace-LyricEditBench-FF6F00)](https://huggingface.co/datasets/ASLP-lab/LyricEditBench)
-[![Discord](https://img.shields.io/badge/Discord-Join%20Us-5865F2?logo=discord&logoColor=white)](https://discord.gg/RXghgWyvrn)
-[![WeChat](https://img.shields.io/badge/WeChat-Group-07C160?logo=wechat&logoColor=white)](https://github.com/ASLP-lab/YingMusic-Singer-Plus/blob/main/assets/wechat_qr.png)
-[![Lab](https://img.shields.io/badge/🏫%20ASLP-Lab-4A90D9)](http://www.npu-aslp.org/)
+训练语料不授予录音、歌曲、歌词、表演或身份相关权利。请只使用自己有权使用的数据，不要将生成模型用于冒充他人或绕过相关权利人的许可要求。
 
-<p>
-        <a href="https://orcid.org/0009-0005-5957-8936">Chunbo Hao</a><sup>1,2</sup> ·
-        <a href="https://orcid.org/0009-0003-2602-2910">Junjie Zheng</a><sup>2</sup> ·
-        <a href="https://orcid.org/0009-0001-6706-0572">Guobin Ma</a><sup>1</sup> ·
-        Yuepeng Jiang<sup>1</sup> ·
-        Huakang Chen<sup>1</sup> ·
-        Wenjie Tian<sup>1</sup> ·
-        <a href="https://orcid.org/0009-0003-9258-4006">Gongyu Chen</a><sup>2</sup> ·
-        <a href="https://orcid.org/0009-0005-5413-6725">Zihao Chen</a><sup>2</sup> ·
-        Lei Xie<sup>1</sup>
-</p>
+## 环境准备
 
-<p>
-        <sup>1</sup> Audio, Speech and Language Processing Group (ASLP@NPU), School of Computer Science, Northwestern Polytechnical University, China<br>
-        <sup>2</sup> AI Lab, GiantNetwork, China
-</p>
+以 Linux + NVIDIA CUDA + Python 3.10 为主要运行环境。基础依赖清单位于：
 
-</div>
+```text
+src/YingMusic-Singer-Plus/requirements.txt
+```
 
-## 🎥 Demo Video
-
-YingMusic-Singer-Plus Demo, narration voiceover provided by [VoiceSculptor](https://github.com/ASLP-lab/VoiceSculptor). Click the badge below to jump to watch the demo video:
-
-| YouTube | Bilibili |
-|---------|----------|
-| [![YouTube](assets/YingMusic-Singer-Plus.png)](https://www.youtube.com/watch?v=ktjJFS5R3Dk) | [![Bilibili](assets/YingMusic-Singer-Plus.png)](https://www.bilibili.com/video/BV1zPDSBhEkz/) |
-
-## 📖 Introduction
-
-**YingMusic-Singer-Plus** is a fully diffusion-based singing voice synthesis model that enables **melody-controllable singing voice editing with flexible lyric manipulation**, requiring no manual alignment or precise phoneme annotation.
-
-Given only three inputs — an optional timbre reference, a melody-providing singing clip, and modified lyrics — YingMusic-Singer-Plus synthesizes high-fidelity singing voices at **44.1 kHz** while faithfully preserving the original melody.
-
-
-<div align="center">
-<img src="./assets/YingMusic-Singer.drawio.svg" alt="YingMusic-Singer-Plus Architecture" width="90%">
-<p><i>Overall architecture of YingMusic-Singer-Plus. Left: SFT training pipeline. Right: GRPO training pipeline.</i></p>
-</div>
-
-
-## ✨ Key Features
-
-- **Annotation-free**: No manual lyric-MIDI alignment required at inference
-- **Flexible lyric manipulation**: Supports 6 editing types — partial/full changes, insertion, deletion, translation (CN↔EN), and code-switching
-- **Strong melody preservation**: CKA-based melody alignment loss + GRPO-based optimization
-- **Bilingual**: Unified IPA tokenizer for both Chinese and English
-- **High fidelity**: 44.1 kHz stereo output via Stable Audio 2 VAE
-
-
-## 🚀 Quick Start
-
-### Option 1: Install from Scratch
+示例安装方式：
 
 ```bash
-# We strongly recommend uv for faster dependency resolution.
-uv venv --python 3.10
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-uv pip install -r requirements.txt
-
-# If you are in CN, use the USTC mirror for faster downloads:
-uv pip install -r requirements.txt -i https://mirrors.ustc.edu.cn/pypi/simple
-
-# Alternatively, conda is also supported:
-conda create -n YingMusic-Singer-Plus python=3.10
-conda activate YingMusic-Singer-Plus
-pip install uv
-uv pip install -r requirements.txt
-
-# If you are in CN:
-uv pip install -r requirements.txt -i https://mirrors.ustc.edu.cn/pypi/simple
-```
-### Option 2: Pre-built Environment
-
-**Conda**
-
-1. Download and install **Miniconda** from https://repo.anaconda.com/miniconda/ for your platform. Verify with `conda --version`.
-2. Download the pre-built environment package for your setup from the table below.
-3. Navigate to your Conda `envs/` directory and create a folder named `YingMusic-Singer-Plus`.
-4. Move the downloaded package into that folder and extract it:
-```bash
-   tar -xvf <package_name>
+cd src/YingMusic-Singer-Plus
+python3.10 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 ```
 
-**uv**
+不同 CUDA、PyTorch 和显卡环境可能需要按照官方说明选择对应的 PyTorch wheel。训练前请确认 `torch.cuda.is_available()` 正常，并安装 `ffmpeg`、音频编解码器及项目所需的系统依赖。
 
-1. Install **uv** via `pip install uv` or follow the [official instructions](https://docs.astral.sh/uv/getting-started/installation/).
-2. Download the pre-built environment package for your setup from the table below.
-3. Extract the package and activate the environment:
-```bash
-   tar -xvf <package_name>
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-```
+## 运行前需要准备的文件
 
-| CPU Architecture | GPU    | OS      | Type  | Download     |
-|------------------|--------|---------|-------|--------------|
-| AMD64            | NVIDIA | Linux   | Conda | Coming soon  |
-| AMD64            | NVIDIA | Linux   | uv    | Coming soon  |
-| AMD64            | NVIDIA | Windows | uv    | Coming soon  |
+请在本机准备以下内容，并通过命令行参数或环境变量传入：
 
-### Option 3: Docker
+1. 有授权的数据音频及对应 manifest/token 文件；
+2. 基础模型、训练起点 checkpoint、VAE checkpoint、MIDI/SOME teacher checkpoint；
+3. 如使用 V4Hg/V5Pg 等分支，还需要该分支要求的 warm-start checkpoint、对齐 manifest、GAME/MIDI/风格缓存或审计文件；
+4. 独立的输出目录，避免覆盖输入 checkpoint。
 
-Build the image:
+可以从 `config/public.example.yaml` 开始填写本地配置。示例中的 `/path/to/...` 都是占位符，不是仓库运行所需的固定路径。
+
+## 训练复现
+
+### V4c
+
+进入主源码目录，准备 token 数据目录、基础 checkpoint、VAE 和 MIDI teacher：
 
 ```bash
-docker build -t YingMusic-Singer-Plus .
+cd src/YingMusic-Singer-Plus
+
+CUDA_VISIBLE_DEVICES=0 bash run_sft_v4c.sh \
+  --token_dir /path/to/authorized/tokens \
+  --output_dir /path/to/output/v4c \
+  --ckpt_path /path/to/base/YingMusicSinger_model.pt \
+  --vae_ckpt /path/to/weights/vae.ckpt \
+  --midi_ckpt /path/to/weights/midi_teacher.ckpt
 ```
 
-## 🎵 Inference
+多卡版本使用 `run_sft_v4c_ddp.sh`。更底层、参数更完整的入口是 `train_plus_v4c.py`。
 
-### Option 1: Online Demo (HuggingFace Space)
+### V4H / V4Hg
 
-Visit https://huggingface.co/spaces/ASLP-lab/YingMusic-Singer-Plus to try the model instantly in your browser.
+对应实现和启动脚本位于：
 
-### Option 2: Local Gradio App (same as online demo)
+```text
+src/package_v4c_finetune/train/train_plus_h.py
+src/package_v4c_finetune/train/run_sft_h_ddp.sh
+src/package_v4c_finetune/train/run_sft_v4hg_10k.sh
+```
+
+V4Hg 是从 V4H warm-start 并切换到指定 VAE 的适配训练。使用前需要准备授权的训练/评估 manifest、warm-start checkpoint、VAE checkpoint，并设置脚本要求的环境变量，例如：
 
 ```bash
-python app_local.py
+cd src/package_v4c_finetune
+export H_PROJECT_DIR=/path/to/project
+export H_DATA_DIR=/path/to/authorized/h_training
+export H_WARMSTART_CHECKPOINT=/path/to/v4h/checkpoint.pt
+export H_VAE_CKPT=/path/to/vae_285k.ckpt
+export H_OUTPUT_DIR=/path/to/output/v4hg
+bash train/run_sft_v4hg_10k.sh
 ```
 
-### Option 3: Command-line Inference
+### V5P / V5Pg
+
+V5P/V5Pg 训练实现位于：
+
+```text
+src/package_v4c_finetune/train/train_v5p.py
+```
+
+该入口要求训练和评估 manifest、GAME cache manifest、pool audit、H 配置指纹，以及相应的基础或 warm-start checkpoint。示例：
 
 ```bash
-python infer.py \
-    --ref_audio examples/hf_space/melody_control/melody_control_ZH_02_timbre.wav \
-    --melody_audio examples/hf_space/melody_control/melody_control_ZH_02_melody.wav \
-    --ref_text "就让你|在别人怀里|快乐" \
-    --target_text "Missing you in my mind|missing you in my heart" \
-    --output output/melody_control_zh_missing_you.wav
+cd src/package_v4c_finetune
+torchrun --nproc_per_node=4 train/train_v5p.py \
+  --train_manifest /path/to/authorized/train_manifest.json \
+  --eval_manifest /path/to/authorized/eval_manifest.json \
+  --game_cache_manifest /path/to/authorized/game_cache/manifest.json \
+  --pool_audit /path/to/authorized/pool_audit.json \
+  --h_config_fingerprint YOUR_CONFIG_FINGERPRINT \
+  --ckpt_path /path/to/base/YingMusicSinger_model.pt \
+  --vae_ckpt /path/to/vae.ckpt \
+  --midi_ckpt /path/to/midi_teacher.ckpt \
+  --output_dir /path/to/output/v5p
 ```
 
-Enable vocal separation and accompaniment mixing:
+V5Pg 还需要通过 `--warmstart_checkpoint` 提供 V5P checkpoint，并按照脚本参数指定对应 phase。完整参数可运行：
 
 ```bash
-python infer.py \
-    --ref_audio examples/hf_space/lyric_edit/SingEdit_EN_01.wav \
-    --melody_audio examples/hf_space/lyric_edit/SingEdit_EN_01.wav \
-    --ref_text "can you tell my heart is speaking|my eyes will give you clues" \
-    --target_text "can you spot the moon is grinning|my lips will show you hints" \
-    --separate_vocals \
-    --mix_accompaniment \
-    --output output/lyric_edit_en_moon_grinning.wav
+python train/train_v5p.py --help
 ```
-### Option 4: Batch Inference
 
-> **Note**: All audio fed to the model must be pure vocal tracks (no accompaniment). If your inputs contain accompaniment, run vocal separation first using `src/third_party/MusicSourceSeparationTraining/inference_api.py`.
+### 其他版本和历史训练线
 
-The input JSONL file should contain one JSON object per line, formatted as follows:
+`src/package_v4c_finetune/train/` 中的 `run_*.sh`、`train_*.py` 和 `train_plus_*.py` 对应其他 V4 分支及其 smoke/resume/FSDP/DDP 入口。早期实验位于 `src/archive_training/`，每个目录保留原训练脚本和启动脚本；运行前请检查脚本参数并替换其中的占位路径。
 
-```json
-{
-    "id": "lyric_edit_en_moon_grinning", 
-    "melody_ref_path": "examples/hf_space/lyric_edit/SingEdit_EN_01.wav", 
-    "gen_text": "can you spot the moon is grinning|my lips will show you hints", 
-    "timbre_ref_path": "examples/hf_space/lyric_edit/SingEdit_EN_01.wav", 
-    "timbre_ref_text": "can you tell my heart is speaking|my eyes will give you clues"
-}
-```
+## 推理和评估
+
+V4 推理入口：
 
 ```bash
-python batch_infer.py \
-    --input_type jsonl \
-    --input_path /path/to/input.jsonl \
-    --output_dir /path/to/output \
-    --ckpt_path /path/to/ckpts \
-    --num_gpus 4
+cd src/YingMusic-Singer-Plus
+python infer_v4.py \
+  --checkpoint /path/to/checkpoint.pt \
+  --ref_audio /path/to/reference.wav \
+  --melody_audio /path/to/melody.wav \
+  --vae_ckpt /path/to/vae.ckpt \
+  --midi_ckpt /path/to/midi_teacher.ckpt \
+  --output /path/to/output.wav
 ```
 
-Multi-process inference on **LyricEditBench (melody control)** — the test set will be downloaded automatically:
+V5P 轨迹评估、checkpoint 审计、对齐和结果整理脚本位于 `src/package_v4c_finetune/infer/` 与 `src/package_v4c_finetune/train/`。运行这些工具时，同样只使用自己有权处理的输入音频和 manifest。
 
-```bash
-python inference_mp.py \
-    --input_type lyric_edit_bench_melody_control \
-    --output_dir path/to/LyricEditBench_melody_control \
-    --ckpt_path ASLP-lab/YingMusic-Singer-Plus \
-    --num_gpus 8
+## 审计
+
+发布前可运行：
+
+```powershell
+./scripts/public_release_audit.ps1
 ```
 
-Multi-process inference on **LyricEditBench (singing edit)**:
+该审计会检查禁止的二进制/媒体资产、私有路径、服务器标识和凭据模式。
 
-```bash
-python inference_mp.py \
-    --input_type lyric_edit_bench_sing_edit \
-    --output_dir path/to/LyricEditBench_sing_edit \
-    --ckpt_path ASLP-lab/YingMusic-Singer-Plus \
-    --num_gpus 8
-```
+## 许可证
 
-## 🏗️ Model Architecture
-
-YingMusic-Singer-Plus consists of four core components:
-
-| Component | Description |
-|-----------|-------------|
-| **VAE** | Stable Audio 2 encoder/decoder; downsamples stereo 44.1 kHz audio by 2048× |
-| **Melody Extractor** | Encoder of a pretrained MIDI extraction model (SOME); captures disentangled melody information |
-| **IPA Tokenizer** | Converts Chinese & English lyrics into a unified phoneme sequence with sentence-level alignment |
-| **DiT-based CFM** | Conditional flow matching backbone following F5-TTS (22 layers, 16 heads, hidden dim 1024) |
-
-**Total parameters**: ~727.3M (453.6M CFM + 156.1M VAE + 117.6M Melody Extractor)
-
-
-## 📊 LyricEditBench
-
-We introduce **LyricEditBench**, the first benchmark for melody-preserving lyric modification evaluation, built on [GTSinger](https://github.com/GTSinger/GTSinger). The dataset is available on HuggingFace at https://huggingface.co/datasets/ASLP-lab/LyricEditBench.
-
-### Results
-
-<div align="center">
-<p><i>Table 2: Comparison with Baseline Model on LyricEditBench across Task Types in Table 1 and Languages. Metrics (M): P: PER, S:
-SIM, F: F0-CORR, V: VS are detailed in Section 3. Best results are Bold.</p>
-<img src="./assets/results.png" alt="LyricEditBench Results" width="90%">
-</div>
-
-
-## 🙏 Acknowledgements
-
-This work builds upon the following open-source projects:
-
-- [F5-TTS](https://github.com/SWivid/F5-TTS) — DiT-based CFM backbone
-- [Stable Audio 2](https://github.com/Stability-AI/stable-audio-tools) — VAE architecture
-- [SOME](https://github.com/openvpi/SOME) — Melody Extractor
-- [DiffRhythm](https://github.com/ASLP-lab/DiffRhythm) — Sentence-level alignment strategy
-- [GTSinger](https://github.com/GTSinger/GTSinger) — Benchmark base corpus
-- [Emilia](https://huggingface.co/datasets/amphion/Emilia-Dataset) — TTS pretraining data
-
-
-## 📄 License
-
-The code and model weights in this project are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), **except** for the following:
-
-The VAE model weights and inference code (in `src/YingMusic-Singer/utils/stable-audio-tools`) are derived from [Stable Audio Open](https://huggingface.co/stabilityai/stable-audio-open-1.0) by Stability AI, and are licensed under the [Stability AI Community License](./LICENSE-STABILITY).
-
-## ✉️ Contact Us
-If you are interested in leaving a message to our work, feel free to email cbhao@mail.nwpu.edu.cn or lxie@nwpu.edu.cn
-
-You’re welcome to join our WeChat group for technical discussions, updates.
-
-<p align="center">
-  <!-- <em>Due to group limits, if you can't scan the QR code, please add my WeChat for group access  -->
-      <!-- : <strong>Tiamo James</strong></em> -->
-  <br>
-  <span style="display: inline-block; margin-right: 10px;">
-    <img src="https://github.com/ASLP-lab/YingMusic-Singer-Plus/blob/main/assets/wechat_qr.png" width="300" alt="WeChat Group QR Code"/>
-  </span>
-  <span style="display: inline-block; margin-right: 10px;">
-    <img src="https://github.com/ASLP-lab/YingMusic-Singer-Plus/blob/main/assets/wechat_qr_author.png" width="300" alt="WeChat Group QR Code"/>
-  </span>
-</p>
-
-## Star History
-
-<a href="https://www.star-history.com/?repos=ASLP-lab%2FYingMusic-Singer-Plus&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=ASLP-lab/YingMusic-Singer-Plus&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=ASLP-lab/YingMusic-Singer-Plus&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=ASLP-lab/YingMusic-Singer-Plus&type=date&legend=top-left" />
- </picture>
-</a>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/ASLP-lab/YingMusic-Singer-Plus/main/assets/institutional_logo.svg" alt="Institutional Logo" width="600">
-</p>
+版权归 `rabbit321011` 所有的原创代码、文档和研究材料统一遵循 [PolyForm Noncommercial License 1.0.0](LICENSE)：允许非商业研究、使用、修改和分发，但不授权商业用途。该许可证属于公开源码的非商业许可证，不是 OSI 认定的开源许可证。第三方材料不受根目录许可证覆盖，仍遵循各自的上游许可证和署名要求，详见 `THIRD_PARTY_NOTICES.md` 及各第三方目录中的许可证文件。

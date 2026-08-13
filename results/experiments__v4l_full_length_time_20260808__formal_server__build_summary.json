@@ -1,0 +1,49 @@
+{
+  "schema": "v4l_full_length_time_windows_v1",
+  "tokens": "${SERVER_PATH}",
+  "tokens_sha256: redacted
+  "trim_manifest": "${SERVER_PATH}",
+  "trim_manifest_sha256: redacted
+  "audio_dir": "${SERVER_PATH}",
+  "min_duration": 30.0,
+  "max_duration": 60.0,
+  "max_trim_gap_exclusive": 0.5,
+  "min_segments": 2,
+  "gap_silence_rule": "max(0, round_half_up(gap_seconds * 44100))",
+  "packing_strategy": "greedy_maximal_under_max_duration",
+  "dry_run": false,
+  "input_token_count": 14566,
+  "eligible_run_count": 8857,
+  "output_window_count": 3373,
+  "output_audio_hours": 44.08282323003275,
+  "inserted_silence_frames": 23416599,
+  "inserted_silence_hours": 0.14749684429327287,
+  "source_segment_count": 7003,
+  "duration_bins": {
+    "30-35": 276,
+    "35-40": 494,
+    "40-45": 608,
+    "45-50": 636,
+    "50-55": 654,
+    "55-60": 705
+  },
+  "segment_count_bins": {
+    "2": 3116,
+    "3": 257
+  },
+  "gap_stats": {
+    "accepted_nonpositive_gap": 110,
+    "accepted_positive_gap": 3124,
+    "accepted_zero_gap": 1418,
+    "gap_not_below_limit": 4616,
+    "non_contiguous_index": 2877
+  },
+  "excluded": {
+    "missing_keep_trim": 1057
+  },
+  "manifest_sha256: redacted
+}
+
+
+
+

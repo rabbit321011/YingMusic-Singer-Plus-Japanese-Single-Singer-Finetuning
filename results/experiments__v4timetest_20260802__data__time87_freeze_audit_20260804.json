@@ -1,0 +1,39 @@
+{
+  "schema": "v4timetest_time87_freeze_v1",
+  "formal_label": "V4PH-TIME87H",
+  "colloquial_label_rejected": "V4PH-TIME90H",
+  "training_authorized": false,
+  "samples": 14566,
+  "loader_effective_seconds": 313199.0140000022,
+  "loader_effective_hours": 86.99972611111171,
+  "eval_samples": 201,
+  "game_entries": 14767,
+  "unique_cache_files": 14761,
+  "total_cache_bytes": 1673900194,
+  "h_config_fingerprint": "380a61b485b8cf7c7335ee977bb2eb7378f3d66f3d428355e3751a6a457f8c60",
+  "sha256: redacted
+    "control30": "d668456ba55d5aed89e3f3300f75c1068fa5c2b99b58641137270be8961cb8a3",
+    "control65": "2dcc7d0a2874800175bfb0b7b48fe017e1f377cd897547ba45260accd2d093ce",
+    "control87": "c3e1ce7f011f38ad5e70666211d07ce39c3316bd32d3fcfc4a0fffebfc31c3dd",
+    "h30": "727d3ab4ef5c27252eeac7739b4f76935d57ad141e5be81e95001bd307a61de2",
+    "h65": "416bf7ca77ab68fd7d41b11f8d44890440b5067d441d64ea568fb8c13e38b13f",
+    "h87": "85127fe586663a96eba2d882823d20705dd2eccfe5df031da6fbe83f6d7c1d3d",
+    "h_eval": "78f06dc680947c7beb17435e88e48c24ac071126e5cfa853c1a55aa008ae48e0",
+    "game_manifest": "e1ceacd9ed7eb851c08ff81e175d69b754e6cdc0b63caec519ed9ab22d61d9df"
+  },
+  "contracts": {
+    "time30_strict_subset_time65": true,
+    "time65_strict_subset_time87": true,
+    "shared_control_records_unchanged": true,
+    "shared_h_records_unchanged": true,
+    "control_h_order_and_phrases_equal": true,
+    "train_eval_path_overlap": 0,
+    "game_entry_order_equals_train_plus_eval": true,
+    "all_game_cache_files_reopened": true,
+    "all_game_arrays_finite": true
+  }
+}
+
+
+
+

@@ -1,0 +1,19 @@
+# Copy this file to a private local configuration and fill in paths there.
+server_root: /path/to/project
+artifact_root: /path/to/artifacts
+checkpoint: /path/to/checkpoint.pt
+dataset_manifest: /path/to/authorized/manifest.json
+
+
+
+
+
+
+
+
+
+
+
+
+
+

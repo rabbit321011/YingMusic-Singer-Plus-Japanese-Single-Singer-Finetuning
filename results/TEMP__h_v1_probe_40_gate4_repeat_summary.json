@@ -1,0 +1,46 @@
+{
+  "schema": "h_alignment_v1",
+  "input_alignment": "experiments\\h_kana_alignment_validation\\outputs\\aligned_40.json",
+  "input_alignment_sha256: redacted
+  "output_manifest": "TEMP\\h_v1_probe_40_gate4_repeat.json",
+  "output_manifest_sha256: redacted
+  "japanese_module": "YingMusic-Singer-Plus-src\\src\\YingMusicSinger\\utils\\f5_tts\\g2p\\g2p\\japanese.py",
+  "japanese_module_bytes_sha256: redacted
+  "vocab": "YingMusic-Singer-Plus-src\\src\\YingMusicSinger\\utils\\f5_tts\\g2p\\g2p\\vocab.json",
+  "vocab_bytes_sha256: redacted
+  "frame_rate": 21.533203125,
+  "sep_token_id": 365,
+  "max_abs_phone_shift_gate": 4,
+  "samples": 40,
+  "phrases": 265,
+  "eligible_phrases": 216,
+  "fallback_phrases": 49,
+  "phone_placement_coverage": 0.8150943396226416,
+  "fallback_reasons": {
+    "locked_token_mismatch": 6,
+    "missing_cl": 31,
+    "phone_shift_exceeds_limit": 11,
+    "unrepresentable:not enough frames for strict token order": 1
+  },
+  "frontend_token_match": {
+    "punctuation_only": 10,
+    "exact": 249,
+    "mismatch": 6
+  },
+  "phone_match_status": {
+    "exact": 21,
+    "missing_cl": 19
+  },
+  "max_abs_phone_shift_distribution": {
+    "0": 32,
+    "1": 152,
+    "2": 23,
+    "3": 5,
+    "4": 4
+  },
+  "max_abs_phone_shift_observed": 4,
+  "locked_token_sha256: redacted
+}
+
+
+

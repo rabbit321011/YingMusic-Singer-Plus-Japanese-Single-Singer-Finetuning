@@ -1,0 +1,113 @@
+{
+  "experiment": "Japanese singing VAE encode-decode reconstruction",
+  "code_root": "E:\\MyProject\\ToLinuxServer\\YingMusic-Singer-Plus-src",
+  "config": "E:\\MyProject\\ToLinuxServer\\YingMusic-Singer-Plus-src\\src\\YingMusicSinger\\config\\stable_audio_2_0_vae_20hz_official.json",
+  "checkpoint": "E:\\AIscene\\YingMusic_Singer_Plus\\ckpts\\stable_audio_2_0_vae_20hz_official.ckpt",
+  "device": "cuda",
+  "model_load_seconds": 1.9052783999995881,
+  "target_peak_dbfs": -6.0,
+  "samples": [
+    {
+      "sample": "sample_02",
+      "source": "E:\\temp\\260714-2234\\T1_V4f_long_seed42_blind_listening\\sample_02\\reference.wav",
+      "normalization_scale": 1.8751887727219065,
+      "latent_shape": [
+        1,
+        64,
+        610
+      ],
+      "inference_seconds": 1.269911299999876,
+      "realtime_factor": 0.0447735290548146,
+      "original": {
+        "channels": 1,
+        "samples": 1250808,
+        "duration_seconds": 28.36299319727891,
+        "peak": 0.26727294921875,
+        "rms": 0.040950924158096313
+      },
+      "normalized_input": {
+        "channels": 2,
+        "samples": 1250808,
+        "duration_seconds": 28.36299319727891,
+        "peak": 0.501187264919281,
+        "rms": 0.0767907127737999
+      },
+      "reconstruction": {
+        "channels": 2,
+        "samples": 1250808,
+        "duration_seconds": 28.36299319727891,
+        "peak": 0.6099054217338562,
+        "rms": 0.08297329396009445
+      }
+    },
+    {
+      "sample": "sample_03",
+      "source": "E:\\temp\\260714-2234\\T1_V4f_long_seed42_blind_listening\\sample_03\\reference.wav",
+      "normalization_scale": 0.571271158741424,
+      "latent_shape": [
+        1,
+        64,
+        635
+      ],
+      "inference_seconds": 0.9739144000004671,
+      "realtime_factor": 0.033014047457642956,
+      "original": {
+        "channels": 1,
+        "samples": 1300950,
+        "duration_seconds": 29.5,
+        "peak": 0.8773193359375,
+        "rms": 0.17088747024536133
+      },
+      "normalized_input": {
+        "channels": 2,
+        "samples": 1300950,
+        "duration_seconds": 29.5,
+        "peak": 0.501187264919281,
+        "rms": 0.09762309491634369
+      },
+      "reconstruction": {
+        "channels": 2,
+        "samples": 1300950,
+        "duration_seconds": 29.5,
+        "peak": 0.5081031322479248,
+        "rms": 0.1041412353515625
+      }
+    },
+    {
+      "sample": "sample_04",
+      "source": "E:\\temp\\260714-2234\\T1_V4f_long_seed42_blind_listening\\sample_04\\reference.wav",
+      "normalization_scale": 0.7329035733442725,
+      "latent_shape": [
+        1,
+        64,
+        635
+      ],
+      "inference_seconds": 0.9460999999992055,
+      "realtime_factor": 0.03207010178368614,
+      "original": {
+        "channels": 1,
+        "samples": 1300994,
+        "duration_seconds": 29.500997732426303,
+        "peak": 0.683837890625,
+        "rms": 0.07983753085136414
+      },
+      "normalized_input": {
+        "channels": 2,
+        "samples": 1300994,
+        "duration_seconds": 29.500997732426303,
+        "peak": 0.501187264919281,
+        "rms": 0.05851321294903755
+      },
+      "reconstruction": {
+        "channels": 2,
+        "samples": 1300994,
+        "duration_seconds": 29.500997732426303,
+        "peak": 0.5209526419639587,
+        "rms": 0.06395603716373444
+      }
+    }
+  ]
+}
+
+
+

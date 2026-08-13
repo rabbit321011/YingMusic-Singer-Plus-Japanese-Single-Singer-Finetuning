@@ -1,0 +1,65 @@
+{
+  "schema": "h_kana_alignment_validation_v1",
+  "samples": 40,
+  "failures": 0,
+  "density_bins": {
+    "very_sparse": 8,
+    "sparse": 8,
+    "medium": 8,
+    "dense": 8,
+    "very_dense": 8
+  },
+  "duration_seconds_range": [
+    24.102,
+    29.71
+  ],
+  "mora_density_range": [
+    0.57918252523581,
+    6.429012981660828
+  ],
+  "phone_intervals": 5956,
+  "non_silence_phone_intervals": 5638,
+  "display_units": 3189,
+  "units_under_16_7ms": 204,
+  "units_under_50ms": 401,
+  "short_units_by_density_bin": {
+    "very_sparse": {
+      "units": 240,
+      "under_16_7ms": 9,
+      "under_50ms": 16
+    },
+    "sparse": {
+      "units": 454,
+      "under_16_7ms": 5,
+      "under_50ms": 17
+    },
+    "medium": {
+      "units": 609,
+      "under_16_7ms": 25,
+      "under_50ms": 53
+    },
+    "dense": {
+      "units": 795,
+      "under_16_7ms": 44,
+      "under_50ms": 85
+    },
+    "very_dense": {
+      "units": 1091,
+      "under_16_7ms": 121,
+      "under_50ms": 230
+    }
+  },
+  "sokuon_input": 88,
+  "sokuon_independent": 53,
+  "sokuon_approximated": 35,
+  "sofa_confidence_range": [
+    0.440223,
+    0.622175
+  ],
+  "sofa_confidence_median": 0.5137240000000001,
+  "aligned_json_sha256: redacted
+  "review_html_sha256: redacted
+}
+
+
+

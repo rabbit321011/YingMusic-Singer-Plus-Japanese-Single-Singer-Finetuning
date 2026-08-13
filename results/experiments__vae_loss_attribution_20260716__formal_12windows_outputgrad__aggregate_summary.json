@@ -1,0 +1,286 @@
+{
+  "row_count": 36,
+  "variants": {
+    "original": {
+      "n": 12,
+      "median_loss_values": {
+        "spectral_official": 1.8118534088134766,
+        "feature_matching_weighted": 0.3207072913646698,
+        "adversarial_weighted": 0.2121470794081688,
+        "highfreq_logmag_4k_20k": 1.2054389715194702
+      },
+      "median_parameter_gradient_norms": {
+        "spectral_official": 11053.320965359071,
+        "feature_matching_weighted": 3.73597025345088,
+        "adversarial_weighted": 10.679076250093246,
+        "highfreq_logmag_4k_20k": 10.613744549509626
+      },
+      "median_output_gradient_norms": {
+        "spectral_official": 546.8391054365097,
+        "feature_matching_weighted": 1.4877527017485628,
+        "adversarial_weighted": 3.2164012506366286,
+        "highfreq_logmag_4k_20k": 1738.7137486712518
+      },
+      "output_gradient_cosines": {
+        "spectral_official__feature_matching_weighted": {
+          "median": 0.004228825693899139,
+          "mean": 0.0051388606571685334,
+          "negative_count": 0,
+          "count": 12
+        },
+        "spectral_official__adversarial_weighted": {
+          "median": 5.7956425813947455e-06,
+          "mean": -0.00023612971958807507,
+          "negative_count": 6,
+          "count": 12
+        },
+        "spectral_official__highfreq_logmag_4k_20k": {
+          "median": 0.0008110074753308329,
+          "mean": 0.0015517637934242931,
+          "negative_count": 0,
+          "count": 12
+        },
+        "feature_matching_weighted__adversarial_weighted": {
+          "median": 0.19794902658379154,
+          "mean": 0.10927435652616685,
+          "negative_count": 4,
+          "count": 12
+        },
+        "feature_matching_weighted__highfreq_logmag_4k_20k": {
+          "median": 0.002425659824629617,
+          "mean": 0.0036535260906562918,
+          "negative_count": 1,
+          "count": 12
+        },
+        "adversarial_weighted__highfreq_logmag_4k_20k": {
+          "median": -0.0011303180288490383,
+          "mean": 0.00048341897312555203,
+          "negative_count": 7,
+          "count": 12
+        }
+      },
+      "median_bands": {
+        "0-1000": {
+          "energy_ratio_db": 0.705075204372406,
+          "logmag_mae": 1.1680741906166077
+        },
+        "1000-4000": {
+          "energy_ratio_db": 0.49010157585144043,
+          "logmag_mae": 1.0349912643432617
+        },
+        "4000-8000": {
+          "energy_ratio_db": -0.6775739192962646,
+          "logmag_mae": 1.0187591314315796
+        },
+        "8000-12000": {
+          "energy_ratio_db": -0.4680411070585251,
+          "logmag_mae": 1.0779675841331482
+        },
+        "12000-20000": {
+          "energy_ratio_db": -1.3556122183799744,
+          "logmag_mae": 1.3185580968856812
+        }
+      },
+      "median_per_fft_logmag_mae": {
+        "2048": 1.2171395421028137,
+        "1024": 1.2052578926086426,
+        "512": 1.1584826111793518,
+        "256": 1.1029824018478394,
+        "128": 1.0569295287132263,
+        "64": 0.9220898151397705,
+        "32": 0.7913839519023895
+      }
+    },
+    "online": {
+      "n": 12,
+      "median_loss_values": {
+        "spectral_official": 2.8850555419921875,
+        "feature_matching_weighted": 0.3077312409877777,
+        "adversarial_weighted": 0.18159779906272888,
+        "highfreq_logmag_4k_20k": 1.150227427482605
+      },
+      "median_parameter_gradient_norms": {
+        "spectral_official": 131.6850985131261,
+        "feature_matching_weighted": 12.299420519866565,
+        "adversarial_weighted": 13.061448908340987,
+        "highfreq_logmag_4k_20k": 6.688436665632976
+      },
+      "median_output_gradient_norms": {
+        "spectral_official": 125.48893638774418,
+        "feature_matching_weighted": 1.4557376142675753,
+        "adversarial_weighted": 3.6934074378772754,
+        "highfreq_logmag_4k_20k": 2286.772708923068
+      },
+      "output_gradient_cosines": {
+        "spectral_official__feature_matching_weighted": {
+          "median": 0.012224205753126736,
+          "mean": 0.016214219369333566,
+          "negative_count": 0,
+          "count": 12
+        },
+        "spectral_official__adversarial_weighted": {
+          "median": -0.013665383308798126,
+          "mean": -0.011297479649536334,
+          "negative_count": 10,
+          "count": 12
+        },
+        "spectral_official__highfreq_logmag_4k_20k": {
+          "median": 0.0020157136039761782,
+          "mean": 0.007905651986590398,
+          "negative_count": 0,
+          "count": 12
+        },
+        "feature_matching_weighted__adversarial_weighted": {
+          "median": -0.06422112207800598,
+          "mean": -0.07069321197877994,
+          "negative_count": 7,
+          "count": 12
+        },
+        "feature_matching_weighted__highfreq_logmag_4k_20k": {
+          "median": 0.0011412337240127711,
+          "mean": 0.0015717844281994385,
+          "negative_count": 5,
+          "count": 12
+        },
+        "adversarial_weighted__highfreq_logmag_4k_20k": {
+          "median": -0.00027777733384826847,
+          "mean": -0.0008056210548080056,
+          "negative_count": 8,
+          "count": 12
+        }
+      },
+      "median_bands": {
+        "0-1000": {
+          "energy_ratio_db": -0.08140502125024796,
+          "logmag_mae": 1.0022048950195312
+        },
+        "1000-4000": {
+          "energy_ratio_db": -0.1721849888563156,
+          "logmag_mae": 0.9757240414619446
+        },
+        "4000-8000": {
+          "energy_ratio_db": -0.7062538266181946,
+          "logmag_mae": 0.9732112884521484
+        },
+        "8000-12000": {
+          "energy_ratio_db": -1.0561414957046509,
+          "logmag_mae": 1.0799646377563477
+        },
+        "12000-20000": {
+          "energy_ratio_db": -1.8819847106933594,
+          "logmag_mae": 1.3140158653259277
+        }
+      },
+      "median_per_fft_logmag_mae": {
+        "2048": 1.1562252640724182,
+        "1024": 1.1425950527191162,
+        "512": 1.0791329741477966,
+        "256": 1.0021465420722961,
+        "128": 0.9259278178215027,
+        "64": 0.8107347190380096,
+        "32": 0.7432614862918854
+      }
+    },
+    "ema": {
+      "n": 12,
+      "median_loss_values": {
+        "spectral_official": 1.8064667582511902,
+        "feature_matching_weighted": 0.28219935297966003,
+        "adversarial_weighted": 0.1965148225426674,
+        "highfreq_logmag_4k_20k": 1.1331554651260376
+      },
+      "median_parameter_gradient_norms": {
+        "spectral_official": 9685.227629396752,
+        "feature_matching_weighted": 9.141943191602937,
+        "adversarial_weighted": 30.655981510081013,
+        "highfreq_logmag_4k_20k": 8.337004377243735
+      },
+      "median_output_gradient_norms": {
+        "spectral_official": 698.6223359858366,
+        "feature_matching_weighted": 1.5184371522098865,
+        "adversarial_weighted": 3.754475397772527,
+        "highfreq_logmag_4k_20k": 2037.4398948252892
+      },
+      "output_gradient_cosines": {
+        "spectral_official__feature_matching_weighted": {
+          "median": 0.002294884426601176,
+          "mean": 0.0024418722883098884,
+          "negative_count": 0,
+          "count": 12
+        },
+        "spectral_official__adversarial_weighted": {
+          "median": -0.0013601574143991303,
+          "mean": -0.0006521800443463666,
+          "negative_count": 9,
+          "count": 12
+        },
+        "spectral_official__highfreq_logmag_4k_20k": {
+          "median": 0.0006457916180357553,
+          "mean": 0.001642717946965909,
+          "negative_count": 0,
+          "count": 12
+        },
+        "feature_matching_weighted__adversarial_weighted": {
+          "median": 0.19110477393519348,
+          "mean": 0.1442370324807241,
+          "negative_count": 2,
+          "count": 12
+        },
+        "feature_matching_weighted__highfreq_logmag_4k_20k": {
+          "median": 0.0018299163956901495,
+          "mean": 0.002302385423483894,
+          "negative_count": 2,
+          "count": 12
+        },
+        "adversarial_weighted__highfreq_logmag_4k_20k": {
+          "median": -0.0016321053339883938,
+          "mean": -0.0014164647318632491,
+          "negative_count": 9,
+          "count": 12
+        }
+      },
+      "median_bands": {
+        "0-1000": {
+          "energy_ratio_db": 0.08904648572206497,
+          "logmag_mae": 0.9091379344463348
+        },
+        "1000-4000": {
+          "energy_ratio_db": -0.08677428960800171,
+          "logmag_mae": 0.9724025726318359
+        },
+        "4000-8000": {
+          "energy_ratio_db": -0.794148176908493,
+          "logmag_mae": 0.9587786793708801
+        },
+        "8000-12000": {
+          "energy_ratio_db": -0.9768173694610596,
+          "logmag_mae": 1.066999614238739
+        },
+        "12000-20000": {
+          "energy_ratio_db": -1.387992799282074,
+          "logmag_mae": 1.2633628249168396
+        }
+      },
+      "median_per_fft_logmag_mae": {
+        "2048": 1.120180070400238,
+        "1024": 1.1020535230636597,
+        "512": 1.034579575061798,
+        "256": 0.9608336389064789,
+        "128": 0.8994419574737549,
+        "64": 0.8183081448078156,
+        "32": 0.7561781108379364
+      }
+    }
+  },
+  "interpretation": [
+    "Online and EMA reduce median log-magnitude error at every inspected FFT size versus the original Decoder.",
+    "Online and EMA retain less high-frequency energy, especially 8-20 kHz, despite lower overall spectral error.",
+    "Official spectral output gradient weakly agrees with the 4-20 kHz diagnostic gradient but cosine is near zero, so the averaged objective only weakly protects high-frequency detail.",
+    "Adversarial output gradients are weakly negative versus the high-frequency diagnostic in many windows, but magnitude of cosine is near zero; evidence is insufficient to blame GAN as the primary cause.",
+    "Feature matching has a weakly positive but near-zero relation with high-frequency reconstruction.",
+    "The official MR-STFT uses A-weighting and averages seven FFT resolutions; no explicit high-frequency retention or time-domain L1 term exists."
+  ]
+}
+
+
+
