@@ -43,7 +43,7 @@ GRPO 通过**多目标 reward 直接优化非可微的感知指标**，绕过 SF
 
 | 论文 | 链接 | 作用 |
 |------|------|------|
-| YingMusic-Singer-Plus | [arXiv:2603.24589v2](https://arxiv.org/abs/2603.24589) / [本地PDF](paper_yingmusic_singer_plus.pdf) | GRPO 流程、超参数、reward 模型 |
+| YingMusic-Singer-Plus | [arXiv:2603.24589v2](https://arxiv.org/abs/2603.24589) | GRPO 流程、超参数、reward 模型 |
 | Flow-GRPO | [arXiv:2505.05470v4](https://arxiv.org/abs/2505.05470) | ODE→SDE 转换原理、Denoising Reduction |
 | DeepSeek GRPO | [arXiv:2402.03300](https://arxiv.org/abs/2402.03300) | GRPO 原始算法（LLM 版） |
 
