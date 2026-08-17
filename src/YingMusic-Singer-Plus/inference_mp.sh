@@ -4,7 +4,7 @@
 #   --ckpt_path ASLP-lab/YingMusic-Singer
 
 # json example
-# {"id": "lyric_edit_en_moon_grinning", "melody_ref_path": "examples/hf_space/lyric_edit/SingEdit_EN_01.wav", "gen_text": "can you spot the moon is grinning|my lips will show you hints", "timbre_ref_path": "examples/hf_space/lyric_edit/SingEdit_EN_01.wav", "timbre_ref_text": "can you tell my heart is speaking|my eyes will give you clues"}
+# {"id": "lyric_edit_en_moon_grinning", "melody_ref_path": "/path/to/source_singing.wav", "gen_text": "can you spot the moon is grinning|my lips will show you hints", "timbre_ref_path": "/path/to/source_singing.wav", "timbre_ref_text": "can you tell my heart is speaking|my eyes will give you clues"}
 
 # JSONL input:
 python inference_mp.py \

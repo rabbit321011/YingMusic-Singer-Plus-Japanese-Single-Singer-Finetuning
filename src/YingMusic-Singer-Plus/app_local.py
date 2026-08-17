@@ -185,72 +185,6 @@ def synthesize(
 
 
 # ---------------------------------------------------------------------------
-# Example presets / 预设示例
-# ---------------------------------------------------------------------------
-EXAMPLES_MELODY_CONTROL = [
-    [
-        "examples/hf_space/melody_control/melody_control_ZH_01_timbre.wav",
-        "examples/hf_space/melody_control/melody_control_ZH_01_melody.wav",
-        "人和人的沟通|有时候没有用",
-        "此刻记忆中的点滴啊|能否再次被珍藏",
-        True, True, 0.5, 0.5, 32, 3.0, -1,
-    ],
-    [
-        "examples/hf_space/melody_control/melody_control_EN_01_timbre.wav",
-        "examples/hf_space/melody_control/melody_control_EN_01_melody.wav",
-        "i don't know feel|but i wanna try",
-        "won't open the door|and say tomorrow",
-        True, True, 0.5, 0.5, 32, 3.0, -1,
-    ],
-    [
-        "examples/hf_space/melody_control/melody_control_EN_02_timbre.wav",
-        "examples/hf_space/melody_control/melody_control_EN_02_melody.wav",
-        "and she'll never know your story like|i do",
-        "你将安然无恙|无人能再伤你",
-        False, False, 0.5, 0.5, 32, 3.0, -1,
-    ],
-    [
-        "examples/hf_space/melody_control/melody_control_ZH_02_timbre.wav",
-        "examples/hf_space/melody_control/melody_control_ZH_02_melody.wav",
-        "就让你|在别人怀里|快乐",
-        "Missing you in my mind|missing you in my heart",
-        False, False, 0.5, 0.5, 32, 3.0, -1,
-    ]
-]
-
-EXAMPLES_LYRIC_EDIT = [
-    [
-        "examples/hf_space/lyric_edit/SingEdit_ZH_01.wav",
-        "examples/hf_space/lyric_edit/SingEdit_ZH_01.wav",
-        "青山之间晚风起|灯火照亮归途|远方仍有歌声",
-        "阳光中赏花香|花瓣在飘落|山间幽静致远",
-        True, True, 0.5, 0.5, 32, 3.0, -1,
-    ],
-    [
-        "examples/hf_space/lyric_edit/SingEdit_EN_01.wav",
-        "examples/hf_space/lyric_edit/SingEdit_EN_01.wav",
-        "can you tell my heart is speaking|my eyes will give you clues",
-        "can you spot the moon is grinning|my lips will show you hints",
-        True, True, 0.5, 0.5, 32, 3.0, -1,
-    ],
-    [
-        "examples/hf_space/lyric_edit/SingEdit_ZH_02.wav",
-        "examples/hf_space/lyric_edit/SingEdit_ZH_02.wav",
-        "歌声是翅膀|唱出了希望|所有的付出只因爱的力量|和你一样",
-        "火锅是梦想|煮出了欢畅|全部的辛劳全因肉的力量|与汤一样",
-        False, False, 0.5, 0.5, 32, 3.0, -1,
-    ],
-    [
-        "examples/hf_space/lyric_edit/SingEdit_EN_02.wav",
-        "examples/hf_space/lyric_edit/SingEdit_EN_02.wav",
-        "i can hear what you say|now i know|why know we can|make it",
-        "i can see where you go|but i say|why not we will|break it",
-        False, False, 0.5, 0.5, 32, 3.0, -1,
-    ],
-]
-
-
-# ---------------------------------------------------------------------------
 # Custom CSS / 自定义样式
 # ---------------------------------------------------------------------------
 CUSTOM_CSS = """
@@ -366,12 +300,6 @@ CUSTOM_CSS = """
     border: inherit;
     outline: none;
     box-shadow: none;
-}
-
-/* ---------- Example tabs ---------- */
-.example-tab-label {
-    font-weight: 600 !important;
-    font-size: 0.95rem !important;
 }
 
 /* ========== 3. Run button — palette blue ========== */
@@ -575,45 +503,7 @@ def build_ui():
                 )
 
         # ================================================================
-        # ROW 4 – 预设示例（放在所有真实控件定义之后）
-        # ================================================================
-        gr.HTML("<hr style='border-color:#30363d; margin: 16px 0 12px;'>")
-        gr.Markdown("#### 🎵 预设示例 / Example Presets")
-        gr.Markdown(
-            "<small style='color:#8b949e;'>点击任意行自动填入上方输入区域 / Click any row to auto-fill the inputs above</small>"
-        )
-        gr.HTML("""
-<p style="text-align:center; font-size:0.78rem; color:#484f58; margin: 2px 0 10px; line-height:1.7;">
-  示例中所用音频片段均仅供学术研究与演示目的，不用于任何商业用途。如有版权问题，请联系作者予以删除。<br>
-  Audio clips used in the examples are for academic research and demonstration purposes only, with no commercial use intended. If you believe any content infringes your copyright, please contact the authors for removal.
-</p>
-""")
-
-        # 所有真实控件均已定义，直接绑定
-        _example_inputs = [
-            ref_audio, melody_audio, ref_text, target_text,
-            separate_vocals_flag, mix_accompaniment_flag,
-            sil_len_to_end, t_shift, nfe_step, cfg_strength, seed,
-        ]
-
-        with gr.Tabs():
-            with gr.Tab("🎼 Melody Control"):
-                gr.Examples(
-                    examples=EXAMPLES_MELODY_CONTROL,
-                    inputs=_example_inputs,
-                    label="Melody Control Examples",
-                    examples_per_page=5,
-                )
-            with gr.Tab("✏️ Lyric Edit"):
-                gr.Examples(
-                    examples=EXAMPLES_LYRIC_EDIT,
-                    inputs=_example_inputs,
-                    label="Lyric Edit Examples",
-                    examples_per_page=5,
-                )
-
-        # ================================================================
-        # ROW 5 – 合成按钮与输出
+        # ROW 4 – 合成按钮与输出
         # ================================================================
         gr.HTML("<hr style='border-color:#30363d; margin: 12px 0;'>")
         run_btn = gr.Button("🎤  开始合成 / Start Synthesizing", elem_id="run-btn", size="lg")

@@ -143,8 +143,8 @@ python app_local.py
 
 ```bash
 python infer.py \
-    --ref_audio examples/hf_space/melody_control/melody_control_ZH_02_timbre.wav \
-    --melody_audio examples/hf_space/melody_control/melody_control_ZH_02_melody.wav \
+    --ref_audio /path/to/timbre_reference.wav \
+    --melody_audio /path/to/melody_reference.wav \
     --ref_text "就让你|在别人怀里|快乐" \
     --target_text "Missing you in my mind|missing you in my heart" \
     --output output/melody_control_zh_missing_you.wav
@@ -154,8 +154,8 @@ python infer.py \
 
 ```bash
 python infer.py \
-    --ref_audio examples/hf_space/lyric_edit/SingEdit_EN_01.wav \
-    --melody_audio examples/hf_space/lyric_edit/SingEdit_EN_01.wav \
+    --ref_audio /path/to/source_singing.wav \
+    --melody_audio /path/to/source_singing.wav \
     --ref_text "can you tell my heart is speaking|my eyes will give you clues" \
     --target_text "can you spot the moon is grinning|my lips will show you hints" \
     --separate_vocals \
@@ -172,9 +172,9 @@ python infer.py \
 ```json
 {
     "id": "lyric_edit_en_moon_grinning",
-    "melody_ref_path": "examples/hf_space/lyric_edit/SingEdit_EN_01.wav",
+    "melody_ref_path": "/path/to/source_singing.wav",
     "gen_text": "can you spot the moon is grinning|my lips will show you hints",
-    "timbre_ref_path": "examples/hf_space/lyric_edit/SingEdit_EN_01.wav",
+    "timbre_ref_path": "/path/to/source_singing.wav",
     "timbre_ref_text": "can you tell my heart is speaking|my eyes will give you clues"
 }
 ```
@@ -250,7 +250,7 @@ YingMusic-Singer-Plus 由四个核心组件组成：
 VAE 模型权重和推理代码（位于 `src/YingMusic-Singer/utils/stable-audio-tools` 中）源自 Stability AI 的 [Stable Audio Open](https://huggingface.co/stabilityai/stable-audio-open-1.0)，并根据 [Stability AI Community License](./LICENSE-STABILITY) 许可。
 
 ## ✉️ 联系我们
-如果您对我们的工作感兴趣并想留言，欢迎发送邮件至 research-contact@example.org 或 research-contact@example.org。
+如果您对我们的工作感兴趣并想留言，欢迎发送邮件至 cbhao@mail.nwpu.edu.cn 或 lxie@nwpu.edu.cn。
 
 欢迎加入我们的微信群进行技术讨论、获取更新。
 

@@ -168,6 +168,22 @@ V5P 轨迹评估、checkpoint 审计、对齐和结果整理脚本位于 `src/pa
 
 该审计会检查禁止的二进制/媒体资产、私有路径、服务器标识和凭据模式。
 
+## 联系方式
+
+项目维护者：[`rabbit321011`](https://github.com/rabbit321011)<br>
+邮箱：[`s321011s@foxmail.com`](mailto:s321011s@foxmail.com)
+
 ## 许可证
 
-版权归 `rabbit321011` 所有的原创代码、文档和研究材料统一遵循 [PolyForm Noncommercial License 1.0.0](LICENSE)：允许非商业研究、使用、修改和分发，但不授权商业用途。该许可证属于公开源码的非商业许可证，不是 OSI 认定的开源许可证。第三方材料不受根目录许可证覆盖，仍遵循各自的上游许可证和署名要求，详见 `THIRD_PARTY_NOTICES.md` 及各第三方目录中的许可证文件。
+本仓库采用**分层许可**，不是所有文件统一使用同一份许可证：
+
+- `rabbit321011` 原创的新增代码、文档、研究记录、配置及对上游代码具有独创性的修改，遵循 [PolyForm Noncommercial License 1.0.0](LICENSE)，未经另行授权不得用于商业目的；
+- 源自 [ASLP-lab/YingMusic-Singer-Plus](https://github.com/ASLP-lab/YingMusic-Singer-Plus) 的上游内容仍遵循 [CC BY 4.0](LICENSE-CC-BY-4.0)，该许可证原有的商业使用权不受 PolyForm 限制；
+- VAE 模型权重及 `src/YingMusic-Singer-Plus/src/YingMusicSinger/utils/stable_audio_tools/` 中源自 Stable Audio Open 的推理代码遵循 [Stability AI Community License](LICENSE-STABILITY)；
+- Amphion G2P、MusicSourceSeparationTraining、py3langid、PaddlePaddle 以及其他第三方内容保留其各自许可证。
+
+**Powered by Stability AI**
+
+GAME、SOFA、Whisper 等运行时依赖及模型权重不随本仓库分发。特别是本项目使用的 GAME 1.0 权重为 `CC BY-NC-SA 4.0`，SOFA `JPN_Test2_Plus` 发布页明确标注 `Commercial Use: Not Approved`。使用者必须自行取得这些组件并遵守其发布页或模型卡条款。
+
+完整的权属边界和逐组件核验结果见 [LICENSING.md](LICENSING.md)、[NOTICE](NOTICE) 与 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。

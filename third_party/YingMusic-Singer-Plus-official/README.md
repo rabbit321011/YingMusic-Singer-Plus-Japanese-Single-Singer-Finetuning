@@ -146,8 +146,8 @@ python app_local.py
 
 ```bash
 python infer.py \
-    --ref_audio examples/hf_space/melody_control/melody_control_ZH_02_timbre.wav \
-    --melody_audio examples/hf_space/melody_control/melody_control_ZH_02_melody.wav \
+    --ref_audio /path/to/timbre_reference.wav \
+    --melody_audio /path/to/melody_reference.wav \
     --ref_text "就让你|在别人怀里|快乐" \
     --target_text "Missing you in my mind|missing you in my heart" \
     --output output/melody_control_zh_missing_you.wav
@@ -157,8 +157,8 @@ Enable vocal separation and accompaniment mixing:
 
 ```bash
 python infer.py \
-    --ref_audio examples/hf_space/lyric_edit/SingEdit_EN_01.wav \
-    --melody_audio examples/hf_space/lyric_edit/SingEdit_EN_01.wav \
+    --ref_audio /path/to/source_singing.wav \
+    --melody_audio /path/to/source_singing.wav \
     --ref_text "can you tell my heart is speaking|my eyes will give you clues" \
     --target_text "can you spot the moon is grinning|my lips will show you hints" \
     --separate_vocals \
@@ -174,9 +174,9 @@ The input JSONL file should contain one JSON object per line, formatted as follo
 ```json
 {
     "id": "lyric_edit_en_moon_grinning", 
-    "melody_ref_path": "examples/hf_space/lyric_edit/SingEdit_EN_01.wav", 
-    "gen_text": "can you spot the moon is grinning|my lips will show you hints", 
-    "timbre_ref_path": "examples/hf_space/lyric_edit/SingEdit_EN_01.wav", 
+    "melody_ref_path": "/path/to/source_singing.wav",
+    "gen_text": "can you spot the moon is grinning|my lips will show you hints",
+    "timbre_ref_path": "/path/to/source_singing.wav",
     "timbre_ref_text": "can you tell my heart is speaking|my eyes will give you clues"
 }
 ```
@@ -256,7 +256,7 @@ The code and model weights in this project are licensed under [CC BY 4.0](https:
 The VAE model weights and inference code (in `src/YingMusic-Singer/utils/stable-audio-tools`) are derived from [Stable Audio Open](https://huggingface.co/stabilityai/stable-audio-open-1.0) by Stability AI, and are licensed under the [Stability AI Community License](./LICENSE-STABILITY).
 
 ## ✉️ Contact Us
-If you are interested in leaving a message to our work, feel free to email research-contact@example.org or research-contact@example.org
+If you are interested in leaving a message to our work, feel free to email cbhao@mail.nwpu.edu.cn or lxie@nwpu.edu.cn
 
 You’re welcome to join our WeChat group for technical discussions, updates.
 

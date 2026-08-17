@@ -1,0 +1,43 @@
+YingMusic-Singer-Plus Japanese Single-Singer Finetuning
+
+This repository contains material under multiple licenses. See LICENSING.md
+for the controlling scope rules.
+
+Original contributions by rabbit321011
+---------------------------------------
+
+Copyright (c) 2026 rabbit321011
+
+Original code, documentation, research materials, configuration, and
+copyrightable modifications by rabbit321011 are licensed under the PolyForm
+Noncommercial License 1.0.0. See LICENSE. Commercial use requires separate
+permission from rabbit321011.
+
+YingMusic-Singer-Plus upstream material
+---------------------------------------
+
+This repository is a modified fork of YingMusic-Singer-Plus:
+https://github.com/ASLP-lab/YingMusic-Singer-Plus
+
+Upstream portions remain licensed under the Creative Commons Attribution 4.0
+International Public License. See LICENSE-CC-BY-4.0. Modifications and additions
+include Japanese single-singer fine-tuning, versioned training and evaluation
+workflows, data-processing utilities, configuration examples, research
+documentation, and public-release sanitization.
+
+Stable Audio-derived materials
+------------------------------
+
+This Stability AI Model is licensed under the Stability AI Community License, Copyright © Stability AI Ltd. All Rights Reserved
+
+Powered by Stability AI
+
+The Stable Audio-derived VAE inference sources are inherited through the
+upstream YingMusic-Singer-Plus project. Copies included in the modified source
+tree differ from the retained upstream snapshot only by trailing whitespace;
+the surrounding training, inference, configuration, and research workflows
+have been adapted and extended. See LICENSE-STABILITY for the applicable terms.
+
+Additional third-party attribution and license information is provided in
+THIRD_PARTY_NOTICES.md, LICENSES/, and the license files retained with each
+component.

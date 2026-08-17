@@ -6,24 +6,24 @@ Single-sample inference script, replacing the Gradio Web UI.
 Usage:
     # melody control
     python infer.py \
-        --ref_audio examples/hf_space/melody_control/melody_control_ZH_02_timbre.wav \
-        --melody_audio examples/hf_space/melody_control/melody_control_ZH_02_melody.wav \
+        --ref_audio /path/to/timbre_reference.wav \
+        --melody_audio /path/to/melody_reference.wav \
         --ref_text "就让你|在别人怀里|快乐" \
         --target_text "Missing you in my mind|missing you in my heart" \
         --output output/melody_control_zh_missing_you.wav
 
     # sing edit
     python infer.py \
-        --ref_audio examples/hf_space/lyric_edit/SingEdit_ZH_02.wav \
-        --melody_audio examples/hf_space/lyric_edit/SingEdit_ZH_02.wav \
+        --ref_audio /path/to/source_singing.wav \
+        --melody_audio /path/to/source_singing.wav \
         --ref_text "歌声是翅膀|唱出了希望|所有的付出只因爱的力量|和你一样" \
         --target_text "火锅是梦想|煮出了欢畅|全部的辛劳全因肉的力量|与汤一样" \
         --output output/lyric_edit_zh_hotpot_dream.wav
 
     # Enable vocal separation + accompaniment mixing simultaneously
     python infer.py \
-        --ref_audio examples/hf_space/lyric_edit/SingEdit_EN_01.wav \
-        --melody_audio examples/hf_space/lyric_edit/SingEdit_EN_01.wav \
+        --ref_audio /path/to/source_singing.wav \
+        --melody_audio /path/to/source_singing.wav \
         --ref_text "can you tell my heart is speaking|my eyes will give you clues" \
         --target_text "can you spot the moon is grinning|my lips will show you hints" \
         --separate_vocals \
