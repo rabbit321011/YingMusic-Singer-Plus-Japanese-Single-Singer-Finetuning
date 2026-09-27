@@ -29,6 +29,7 @@
 - `config/`：不含私密路径的配置示例
 - `results/`：经过筛选和脱敏的少量结果摘要
 - `config/model_v_decoder_adapt.json`、`src/package_v4c_finetune/train/train_v_decoder_adapt.py`：V 分支 decoder-only 训练配方与入口
+- `docs/基础设施/`：脱敏后的实验设计、诊断、训练记录与阶段结论；[公开范围](docs/PUBLICATION_SCOPE.md)说明保留在私有工作区的材料
 
 ## 重要边界
 

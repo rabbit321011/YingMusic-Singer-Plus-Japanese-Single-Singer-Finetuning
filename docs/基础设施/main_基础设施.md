@@ -11,7 +11,7 @@
 | `架构/` | YingMusic-Singer-Plus 模型架构分析 |
 | `论文/` | YingMusic-Singer-Plus 论文（中英对照） |
 | `数据管线/` | 数据来源、split 设计、时间戳体系、词表映射 |
-| `部署运维/` | 服务器连接、环境配置、cloud storage、MSST 部署 |
+| [部署运维/](部署运维/README.md) | 脱敏的环境与模型部署记录；资源总账、连接信息和个人云盘操作留在私有工作区 |
 
 ## 版本
 
@@ -28,6 +28,7 @@
 
 - `temp_0529/` 是第三方官方源码副本（YingMusic-Singer + MusicSourceSeparationTraining），不属于项目文档。
 - `docs/` 根目录下的 `ONBOARDING.md` 是 agent 接入入口。
+- [公开范围](../PUBLICATION_SCOPE.md)解释未收录的上游副本、内部产物和敏感运维材料。
 
 
 

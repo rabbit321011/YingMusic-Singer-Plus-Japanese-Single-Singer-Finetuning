@@ -74,6 +74,10 @@ V5-P 是 non-g 结构模型；V5-Pg 是同一路线完成 `g` 音色适配后的
 |---|---|
 | `V5-P正式训练计划.md` | 完整谱系、L 去重、Long-H 构建、Phase A/B/C 配方、门禁与验收 |
 | `V5-P训练前完整审计.md` | 2026-08-08 训练前历史快照；保留当时通过项、阻塞项、风险和启动顺序 |
+| [V5-PgO](V5PgO/main_V5PgO.md) | 从 Pg20 EMA 出发的 8K 目标函数调整与后续质感诊断 |
+| `V5-P-Alex数据接入DES_中文.md` / `V5-P-Alex数据接入DES_EN.md` | 外部数据准备接口与帧级 H/P token 合同 |
+| `V5-P-Alex数据接入DR.md` / `V5-P-Alex训练计划.md` | 接入决策与训练方案；不包含样本音频 |
+| [simply_jp](simply_jp/main_simply_jp.md) | 日语简化交付方案的文档及校验记录 |
 
 ## 依赖与阅读顺序
 

@@ -1,0 +1,246 @@
+{
+  "schema": "v5pgo_listening_alignment_20260924_v1",
+  "created": "2026-09-24",
+  "user_feedback_note": "Only explicitly stated user observations are encoded. Missing scores and unresolved comparisons are null or unknown. Do not treat descriptive feedback as a continuous score.",
+  "blind_sets": [
+    {
+      "id": "wishing_seed_sweep_20260923",
+      "source": "seed sweep; old workflow",
+      "confound_note": "seed 42 was encoded with a different A VAE posterior than seeds 43-47; only 43-47 are strict seed-only comparisons",
+      "items": [
+        {
+          "label": "A",
+          "source": "seed_45",
+          "seed": 45,
+          "user_feedback": "想下降但始终降不下去；质感还行",
+          "user_score": 70,
+          "user_tier": "middle"
+        },
+        {
+          "label": "B",
+          "source": "seed_42",
+          "seed": 42,
+          "user_feedback": "有点怪；质感不是特别好",
+          "user_score": null,
+          "user_tier": "rejected",
+          "confounded": true
+        },
+        {
+          "label": "C",
+          "source": "seed_46",
+          "seed": 46,
+          "user_feedback": "自然度很高；质感不错",
+          "user_score": 80,
+          "user_tier": "preferred"
+        },
+        {
+          "label": "D",
+          "source": "seed_47",
+          "seed": 47,
+          "user_feedback": "与 C 相近，自然度略逊、没那么温柔，但不奇怪",
+          "user_score": null,
+          "user_score_upper_bound": 80,
+          "user_tier": "middle"
+        },
+        {
+          "label": "E",
+          "source": "seed_43",
+          "seed": 43,
+          "user_feedback": "明显胜出；质感高、自然度也非常不错",
+          "user_score": 90,
+          "user_tier": "preferred"
+        },
+        {
+          "label": "F",
+          "source": "seed_44",
+          "seed": 44,
+          "user_feedback": "唱得有些不自然，嗓子像卡着东西",
+          "user_score": null,
+          "user_tier": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "wishing_fixedA_blend_20260924",
+      "source": "fixed A; initial-noise spherical interpolation seed 42 -> seed 43",
+      "items": [
+        {
+          "label": "X1",
+          "source": "noise_fraction_seed43_0.50",
+          "fraction_seed43": 0.5,
+          "user_feedback": "比较糊",
+          "user_score": null,
+          "user_tier": "rejected"
+        },
+        {
+          "label": "X2",
+          "source": "noise_fraction_seed43_0.75",
+          "fraction_seed43": 0.75,
+          "user_feedback": "比较自然",
+          "user_score": 70,
+          "user_tier": "middle"
+        },
+        {
+          "label": "X3",
+          "source": "noise_fraction_seed43_0.25",
+          "fraction_seed43": 0.25,
+          "user_feedback": "非常自然",
+          "user_score": 75,
+          "user_tier": "preferred"
+        },
+        {
+          "label": "X4",
+          "source": "noise_fraction_seed43_1.00",
+          "fraction_seed43": 1.0,
+          "user_feedback": "一般、有点糊，偏气感",
+          "user_score": null,
+          "user_tier": "rejected"
+        },
+        {
+          "label": "X5",
+          "source": "noise_fraction_seed43_0.00",
+          "fraction_seed43": 0.0,
+          "user_feedback": "比 X4 好，但不如 X2/X3",
+          "user_score": null,
+          "user_tier": "middle"
+        }
+      ]
+    },
+    {
+      "id": "texture_rabbit_20260924",
+      "source": "BV1t7411p7AR seg001; frozen train_long member",
+      "items": [
+        {
+          "label": "Q1",
+          "source": "seed_43",
+          "seed": 43,
+          "user_feedback": "未列入优先组",
+          "user_tier": "unknown"
+        },
+        {
+          "label": "Q2",
+          "source": "vae_B_repeat",
+          "user_feedback": "非常好，尤其前段，好过头了",
+          "user_tier": "preferred"
+        },
+        {
+          "label": "Q3",
+          "source": "seed_42",
+          "seed": 42,
+          "user_feedback": "还好",
+          "user_tier": "middle"
+        },
+        {
+          "label": "Q4",
+          "source": "vae_B",
+          "user_feedback": "也不错",
+          "user_tier": "preferred"
+        },
+        {
+          "label": "Q5",
+          "source": "seed_46",
+          "seed": 46,
+          "user_feedback": "未列入优先组",
+          "user_tier": "unknown"
+        },
+        {
+          "label": "Q6",
+          "source": "source_B",
+          "user_feedback": "也不错",
+          "user_tier": "preferred"
+        }
+      ]
+    },
+    {
+      "id": "texture_viator_20260924",
+      "source": "BV1Ax4y1W7LG seg013_hard; frozen train_short",
+      "items": [
+        {
+          "label": "V1",
+          "source": "seed_43",
+          "seed": 43,
+          "user_feedback": "高音有点哑，不过自然",
+          "user_tier": "middle"
+        },
+        {
+          "label": "V2",
+          "source": "vae_B_repeat",
+          "user_feedback": "发音有瑕疵，明显不是原轨，但质感很真实",
+          "user_tier": "preferred"
+        },
+        {
+          "label": "V3",
+          "source": "seed_42",
+          "seed": 42,
+          "user_feedback": "非常好",
+          "user_tier": "preferred"
+        },
+        {
+          "label": "V4",
+          "source": "vae_B",
+          "user_feedback": "极其好、非常生动具体",
+          "user_tier": "preferred"
+        },
+        {
+          "label": "V5",
+          "source": "seed_46",
+          "seed": 46,
+          "user_feedback": "略微弱于 V5（比较对象疑为笔误）",
+          "user_tier": "unknown",
+          "unresolved_note": "Comparison target is ambiguous."
+        },
+        {
+          "label": "V6",
+          "source": "source_B",
+          "user_feedback": "非常真实，比 V4 稍微空灵一点点，也是极其好",
+          "user_tier": "preferred"
+        }
+      ]
+    },
+    {
+      "id": "texture_dango_20260924",
+      "source": "BV1cb421H7io seg002; frozen train_short",
+      "items": [
+        {
+          "label": "D1",
+          "source": "seed_43",
+          "seed": 43,
+          "user_feedback": "有点电音的感觉，有点呆呆的",
+          "user_tier": "rejected"
+        },
+        {
+          "label": "D2",
+          "source": "vae_B_repeat",
+          "user_feedback": "非常好，真实",
+          "user_tier": "preferred"
+        },
+        {
+          "label": "D3",
+          "source": "seed_42",
+          "seed": 42,
+          "user_feedback": "极其好，基本感觉就是原轨，略微有点哑音，不知道是不是听错了",
+          "user_tier": "preferred"
+        },
+        {
+          "label": "D4",
+          "source": "vae_B",
+          "user_feedback": "与 D2 差不多好，然后 D4 要立体一点",
+          "user_tier": "preferred"
+        },
+        {
+          "label": "D5",
+          "source": "seed_46",
+          "seed": 46,
+          "user_feedback": "有点呆呆的",
+          "user_tier": "rejected"
+        },
+        {
+          "label": "D6",
+          "source": "source_B",
+          "user_feedback": "介于 D2 和 D3 之间",
+          "user_tier": "preferred"
+        }
+      ]
+    }
+  ]
+}

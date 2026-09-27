@@ -132,13 +132,14 @@ V5PgOV 300K decoder 适配均已完成。V5PgOV 是当前 V5 最终候选，
 | [V5P/](V5P/main_V5P.md) | Official → P500 → non-g 40k → g 适配 → [PgO 8K](V5P/V5PgO/main_V5PgO.md) | PgO 已完成，保留为稳定基线 |
 | [V/](V/main_V.md) | 固定 PgO DiT 和 VAE encoder，生成 latent 到原波形的 decoder 适配 | 300K 已完成；[阶段结论](V/V结论.md) |
 | `V5S/` | Official fresh → 285k VAE + continuous SOME，从 step 0 的 40k Sg 路线 | 📋 合同已设计；入口、SOME cache、门禁和训练均未实现，未授权 |
-| `GRPO/` | 最终 V5-Pg 基座上的 INS、GAME 概率音高与 QUA 复合相对奖励训练 | 📋 初步计划已建立；待基座裁决、离线 reward 标定与工程门禁，训练未授权 |
+| [GRPO/](GRPO/main_GRPO.md) | 最终 V5-Pg 基座上的 INS、GAME 概率音高与 QUA 复合相对奖励训练；[完整研究计划](GRPO/GRPO完整计划.md) | 计划/研究材料，不代表训练已授权 |
 | `SOFA/` | 对齐实验：A7 → MFA → SOFA → V4f → V4g → V4fg → T1 盲听选型 | ✅ 已完成，V4fg 10k 为历史同源对照 |
 | `VAE/` | 音质实验：VAE 审计 → Decoder-only → Full-VAE 300k | ✅ 285k online 胜出 |
 | `STYLE_EMBEDDING/` | 句级 embedding 已完成；聚类试听、命名与样本池发布进行中 | 🔄 支撑分支进行中 |
 | `V4vf/` | 随机初始化 DiT 的可行性门禁 | ⛔ 感知门禁失败，路线停止 |
 | `V4Pf/` | SOME/GAME MIDI_P 调研、试听与适配工程证据 | ✅ GAME 基本可用，训练主线转入 V4PH |
-| `V4Pvf/` | 随机 DiT + 量化 MIDI_P 从 step 0 联合训练 | ⛔ 随机初始化门禁失败后停止，checkpoint 已删除 |
+| [V4Pvf/](V4Pvf/main_V4Pvf.md) | 随机 DiT + 量化 MIDI_P 从 step 0 联合训练；[实验记录](V4Pvf/量化MIDI联合训练.md) | ⛔ 随机初始化门禁失败后停止，checkpoint 已删除 |
+| [V5-额外压缩通道实验/](V5-额外压缩通道实验/main_V5-额外压缩通道实验.md) | 表现力条件与压缩通道的研究设计 | 📋 研究方案，不是已训练的 V5 分支 |
 | `V4PH/` | Official base + H phone/PUL placement + GAME MIDI_P | ⚠️ 结构控制成立，但音色远不如 V4fg |
 | `V4IPH/` | V4PH 严格单变量取消 A 区，固定target singer身份由权重承担 | ⛔ 工程审计通过，但无 A 感知假设失败 |
 | `V4IjPH/` | V4IPH + `j(ins)`：target singer INS 全局唱法特征注入空 cond | ⛔ v2 较 V4IPH 轻微改善但仍不及 V4PH，不晋级 |
