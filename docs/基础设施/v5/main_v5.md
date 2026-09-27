@@ -5,9 +5,10 @@ V5 是当前版本。V4 达到 FlowB≈0.90 平台后，V5 先从两个方向并
 
 **SOFA、VAE、V4g、V4fg 已完成。随机初始化感知门禁已失败；P、S、L、H 与 M 新路线已建立。**
 
-**首个正式 V5 集成路线已进入 g 路线对照：V5-P non-g 40k 已完成并经轨迹听评选择 40K EMA；
-低 LR V5-Pg 10k 已完成，V5-Pg20-HLR07 正从同一 40K EMA 独立训练。两条 g 路线都绑定
-285k online VAE，20k 不是 10k resume。**
+**后续进展：V5-Pg20 已完成；从其 EMA 启动的 V5-PgO 8K 训练及
+V5PgOV 300K decoder 适配均已完成。V5PgOV 是当前 V5 最终候选，
+但 PgO 仍保留为稳定默认/回滚基线。** 下文的早期路线记录保留
+其原有实验时点，最新结论以对应分支文档为准。
 
 ## 当前汇合结论
 
@@ -128,7 +129,8 @@ V5 是当前版本。V4 达到 FlowB≈0.90 平台后，V5 先从两个方向并
 
 | 目录 | 内容 | 状态 |
 |---|---|---|
-| `V5P/` | Official → P500 → non-g 40k → 低 LR g10k / 独立 HLR07 g20k | 🔄 non-g 与 g10k 已完成；g20k 正式运行并等待完整轨迹裁决；额外 g 加训已搁置 |
+| [V5P/](V5P/main_V5P.md) | Official → P500 → non-g 40k → g 适配 → [PgO 8K](V5P/V5PgO/main_V5PgO.md) | PgO 已完成，保留为稳定基线 |
+| [V/](V/main_V.md) | 固定 PgO DiT 和 VAE encoder，生成 latent 到原波形的 decoder 适配 | 300K 已完成；[阶段结论](V/V结论.md) |
 | `V5S/` | Official fresh → 285k VAE + continuous SOME，从 step 0 的 40k Sg 路线 | 📋 合同已设计；入口、SOME cache、门禁和训练均未实现，未授权 |
 | `GRPO/` | 最终 V5-Pg 基座上的 INS、GAME 概率音高与 QUA 复合相对奖励训练 | 📋 初步计划已建立；待基座裁决、离线 reward 标定与工程门禁，训练未授权 |
 | `SOFA/` | 对齐实验：A7 → MFA → SOFA → V4f → V4g → V4fg → T1 盲听选型 | ✅ 已完成，V4fg 10k 为历史同源对照 |
