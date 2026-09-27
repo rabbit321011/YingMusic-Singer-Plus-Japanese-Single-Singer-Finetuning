@@ -11,7 +11,7 @@
 - 构建和清洗单歌手训练数据，生成 token、对齐、MIDI/GAME 和其他训练条件；
 - 从官方基础模型或已有 checkpoint 启动日语单歌手 SFT；
 - 研究歌词咬字时序、摩拉/音素对齐、旋律保持、音色保持和长音频生成；
-- 适配不同 VAE，并比较 V4c、V4H/V4Hg、V4PH、V4Pvf、V5P/V5Pg 等实验路线；
+- 适配不同 VAE，并比较 V4c、V4H/V4Hg、V4PH、V4Pvf、V5P/V5Pg、V5PgO/V5PgOV 等实验路线；
 - 对 checkpoint 执行推理、轨迹生成、客观指标评估和人工听评准备；
 - 在使用者自己的授权数据和权重上复现实验，不需要重新编写各版本的训练控制逻辑。
 
@@ -28,6 +28,7 @@
 - `third_party/`：允许再分发的第三方源码及其许可证文件
 - `config/`：不含私密路径的配置示例
 - `results/`：经过筛选和脱敏的少量结果摘要
+- `config/model_v_decoder_adapt.json`、`src/package_v4c_finetune/train/train_v_decoder_adapt.py`：V 分支 decoder-only 训练配方与入口
 
 ## 重要边界
 
@@ -136,6 +137,12 @@ V5Pg 还需要通过 `--warmstart_checkpoint` 提供 V5P checkpoint，并按照�
 ```bash
 python train/train_v5p.py --help
 ```
+
+### V5PgOV decoder 适配
+
+V5PgOV 保持 V5PgO 8K DiT 和 285K online VAE encoder 冻结，只用实际生成的 B 区 latent 与对应的授权原始波形训练 VAE decoder。公开了脱敏的 [训练入口](src/package_v4c_finetune/train/train_v_decoder_adapt.py) 与 [配置](config/model_v_decoder_adapt.json)，需要自行提供四轮兼容缓存、基础 VAE 和 SHA256 校验值；不包含数据、缓存或权重。
+
+实验配方为 32 latent 帧窗口、300K step、EMA、关闭 KL。生成训练缓存时使用逐条随机的三路 CFG（audio 0.4–0.7、text 0.4–0.6、MIDI 0.4–0.5）；**decoder 训练本身没有固定 CFG**。小样本听评中 V 相对旧 decoder 有改善，但柔声可能产生清晰度与空间感副作用，不能据此声称对未见曲目普遍更好。缓存格式、依赖、运行命令与边界见 [V5PgOV decoder 适配说明](docs/v5pgov-decoder-adaptation.md)。
 
 ### 其他版本和历史训练线
 

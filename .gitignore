@@ -18,3 +18,7 @@ __pycache__/
 *.tar.gz
 *.zip
 *.log
+*.npz
+*.jsonl
+/data/
+/runs/
